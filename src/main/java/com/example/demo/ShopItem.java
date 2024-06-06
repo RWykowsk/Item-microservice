@@ -19,6 +19,7 @@ public class ShopItem
     this.type = type;
   }
 
+  @NotNull
   private Integer id;
 
   @NotNull
@@ -27,6 +28,11 @@ public class ShopItem
 
   @NotNull
   private ShopItemType type;
+
+  public static ShopItem fromCreateDto(final CreateShopItemDto shopItem)
+  {
+    return new ShopItem(null, shopItem.name(), shopItem.type());
+  }
 
   public Integer getId()
   {

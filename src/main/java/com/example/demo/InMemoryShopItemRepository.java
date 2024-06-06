@@ -34,7 +34,9 @@ public class InMemoryShopItemRepository implements ShopItemRepository
   @Override
   public ShopItem update(final ShopItem shopItem)
   {
-    return null;
+    return Optional.ofNullable(ID_TO_SHOP_ITEM.get(shopItem.getId()))
+        .map(item-> ID_TO_SHOP_ITEM.put(item.getId(), shopItem))
+        .orElseThrow(()-> new IllegalStateException(String.format("Shop item with id %d not found", shopItem.getId())));
   }
 
   @Override
