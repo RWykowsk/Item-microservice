@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.shop;
 
 import org.springframework.stereotype.Repository;
 
@@ -54,5 +54,12 @@ public class InMemoryShopItemRepository implements ShopItemRepository
                    .filter(item -> item.getName()
                                        .equals(name) && item.getType()
                                                             .equals(shopItemType));
+  }
+
+  @Override
+  public void reset()
+  {
+    ID_TO_SHOP_ITEM.clear();
+    ID_COUNTER.set(0);
   }
 }

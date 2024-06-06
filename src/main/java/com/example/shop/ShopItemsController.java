@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.shop;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -105,7 +105,7 @@ public class ShopItemsController {
     shopItemRepository.delete(id);
   }
 
-  private static final class ShopItemsListResponse
+  public static final class ShopItemsListResponse
   {
     @NotNull
     private final List<ShopItem> shopItems;
@@ -119,7 +119,7 @@ public class ShopItemsController {
     }
   }
 
-  private static final class ShopItemsCreateListRequest
+  public static final class ShopItemsCreateListRequest
   {
 
     public ShopItemsCreateListRequest()

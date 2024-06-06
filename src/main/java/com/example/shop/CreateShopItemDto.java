@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.shop;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

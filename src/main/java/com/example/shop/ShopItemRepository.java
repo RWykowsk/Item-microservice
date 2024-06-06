@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.shop;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,4 +16,6 @@ public interface ShopItemRepository
   List<ShopItem> findAll();
 
   Optional<ShopItem> findByIdAndNameAndShopItemType(Integer id, String name, ShopItemType shopItemType);
+
+  void reset();
 }
