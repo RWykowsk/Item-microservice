@@ -4,9 +4,16 @@ services:
 
   shop-item-microservice:
     image: 'shop-item-microservice:latest'
+    depends_on:
+      - zookeeper
+      - kafka
     build:
       context: ./
     container_name: shop-item-microservice
+    environment:
+      SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS: kafka
+      SPRING_CLOUD_STREAM_KAFKA_BINDER_DEFAULTBROKERPORT: 9092
+      SPRING_KAFKA_BOOTSTRAPSERVERS: kafka:9092
     ports:
       - '8080:8080'
   zookeeper:
@@ -23,6 +30,7 @@ services:
       - zookeeper
     ports:
       - 29092:29092
+      - 9092:9092
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
