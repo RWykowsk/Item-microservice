@@ -4,6 +4,11 @@ Application exposes a CRUD api to manage shop items.
 Shop items are stored in an in-memory database. 
 There is no memory limit - it is dependent on application memory - use at your own risk.
 
+# Application security
+Application endpoints are secured with username+password authentication (default user//user1234)
+
+The credentials can be configured via SPRING_SECURITY_USER_NAME and SPRING_SECURITY_USER_PASSWORD env variables
+
 # Running application from containers
 
 1. Run command 'docker compose up' from  root directory of project
